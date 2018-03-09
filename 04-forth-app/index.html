@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>进度条</title>
+</head>
+<body>
+  "下载进度:"
+  <progress id="downloadProgress" value="0" max="100"></progress>
+  <br><br>
+  <button id="btnStart">开始</button>
+  <button id="btnStop">暂停</button>
+  <button id="btnReset">重置</button>
+<script src="jquery.js"></script>
+<script src="bootstrap.min.js"></script>
+</body>
+<script>
+  var num=0;
+  var access;
+  var dlp=document.getElementById("downloadProgress");
+  var start=document.getElementById("btnStart");
+  var stop=document.getElementById("btnStop");
+  var reset=document.getElementById("btnReset");
+  start.onclick=function(){
+    access=setInterval(function(){
+        num++;
+        dlp.style.width=num+'%';
+        if(num==100){
+        clearInterval(access);
+        }
+        },100);
+  }
+stop.onclick=function(){
+  clearInterval(access);
+}
+reset.onclick=function(){
+  clearInterval(access);
+  dlp.style.width='0%';
+}
+</script>
+</html>

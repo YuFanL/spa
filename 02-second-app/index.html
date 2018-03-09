@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>定时器按钮</title>
+</head>
+<body>
+  <input id="fox" type="button" disabled="disabled" value="同意">
+</body>
+<script>
+  var btn=document.getElementById('fox');
+  window.onload=function(){
+    var i=10;
+    var timer=setInterval(function(){
+        i=i-1;
+        btn.setAttribute('disabled',true);
+        btn.value='同意'+"("+i+"s)";
+        if(i==0){
+        btn.value='同意';
+        btn.removeAttribute('disabled');
+        clearInterval(timer);
+        }
+        },1000);
+    btn.onclick=function(){
+      alert("同意！");
+    }
+  }
+</script>
+</html>

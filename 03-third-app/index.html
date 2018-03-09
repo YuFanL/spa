@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>密码可见</title>
+</head>
+<body>
+年龄:<input type="range" min='0' max='100' value="0" id="val">
+<br>
+<p>您的年龄是:<span id="age">0&nbsp;</span>岁</p>
+</body>
+<script>
+  var val=document.getElementById('val');
+  var age=document.getElementById("age");
+  val.onmouseup=function(){
+    age.innerHTML=val.value+'';
+  }
+</script>
+</html>
